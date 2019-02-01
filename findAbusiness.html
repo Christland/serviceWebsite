@@ -14,13 +14,15 @@
         />
         <link rel="stylesheet" href="styles/findBusiness.css" />
         <link rel="stylesheet" type="text/css" href="styles/homepage.css">
+        <link rel="stylesheet" type="text/css" href="styles/shared.css">
+        <script type="text/javascript" src="scripts/searchAlgorithm.js"></script>
     </head>
     <body>
         <div class="topnav">
-            <a  class = "topnav-active" href="HomePage.html">Home</a>
-            <a  href="FindAWorker.html">Find vocatinal persons</a>
-            <a href="findAbusiness.html">Find a business</a>
-            <a  href="MeetTheTeam.html">About Us </a>
+            <li><a  class = "topnav-active" href="HomePage.html">Home</a></li>
+            <li><a  href="FindAWorker.html">Find vocational persons</a></li>
+            <li><a href="findAbusiness.html">Find a business</a></li>
+            <li><a  href="MeetTheTeam.html">About Us </a></li>
         </div>
         <main class="iw page">
 
@@ -34,6 +36,7 @@
                                 id="search"
                                 class="iw input"
                                 placeholder="Search for a business..."
+                                onkeyup="searchItem('search','#iw-container section>div')"
                             />
                         </div>
                         <div class="iw search-icon">
@@ -45,9 +48,9 @@
 
 
 
-                <div class="iw container">
-                        <section class="iw block tiny">
-                            <div class="iw item row">
+                <div class="iw container" id="iw-container">
+                    <section class="iw block tiny">
+                        <div class="iw item row">
                                 <div class="iw detail row">
                                     <img
                                     src="download.png"
@@ -72,11 +75,9 @@
                                     <h3 class="iw sub small center blue">Jobs completed</h3>
                                     <h2 class="iw title small center">100</h2>
                                 </div>
-                            </div>
+                        </div>
 
-
-
-                            <div class="iw item row">
+                        <div class="iw item row">
                                     <div class="iw detail row">
                                         <img
                                         src="download.png"
@@ -101,12 +102,9 @@
                                         <h3 class="iw sub small center blue">Jobs completed</h3>
                                         <h2 class="iw title small center">100</h2>
                                     </div>
-                                </div>
+                        </div>
 
-
-
-
-                                <div class="iw item row">
+                        <div class="iw item row">
                                         <div class="iw detail row">
                                             <img
                                             src="download.png"
@@ -131,12 +129,9 @@
                                             <h3 class="iw sub small center blue">Jobs completed</h3>
                                             <h2 class="iw title small center">100</h2>
                                         </div>
-                                    </div>
+                        </div>
 
-
-
-
-                                    <div class="iw item row">
+                        <div class="iw item row">
                                             <div class="iw detail row">
                                                 <img
                                                 src="download.png"
@@ -161,8 +156,11 @@
                                                 <h3 class="iw sub small center blue">Jobs completed</h3>
                                                 <h2 class="iw title small center">100</h2>
                                             </div>
-                                        </div>
+                        </div>
                     </section>
+<!--                     <section class="iw no-results-section">
+                        <img class="iw no-results-image" src="no_results_found.png">
+                    </section> -->
                 </div>
             </div>
         </main>

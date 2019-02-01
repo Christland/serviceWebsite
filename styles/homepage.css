@@ -1,26 +1,31 @@
 * 
 {
-    font-family: 'Lato', sans-serif !important;
-    box-sizing:border-box;
+    font-family: 'Lato', sans-serif;
     --mainColor: #5881AB87;
+    --navBarColor: #505A50;
 }
 .topnav {
-
-  overflow: hidden;
- 
+    font-family: 'Lato', sans-serif;
+    margin-top: 0.5em;
+    font-size: 1em !important;
+    color: var(--navBarColor);
 }
-
+.topnav li {
+    list-style: none;
+    display: inline;
+    transition: border-bottom 0.4s;
+    margin:1em;
+    padding: 0.4em 0;
+}
 .topnav a {
-  float: left;
   color: #000;
   text-align: center;
-  padding: 11px 12px;
   text-decoration: none;
-  transition: ease 0.4s;
+  padding-top:0.5em;
   position: static;
 }
 
-.topnav a:hover{
+.topnav li:hover{
     border-bottom: 2px solid var(--mainColor);
 }
 .mySlides 
@@ -39,7 +44,10 @@
 }
 
 
-
+section.main-container
+{
+    margin-top: 3em;
+}
 
 /* Slideshow container */
 .slideshow-container 

@@ -5,13 +5,7 @@
     box-sizing: border-box;
     --mainColor: #5881AB87;
 }
-html,body 
-{
-    width: 100%;
-    height: 100%;
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-}
+
 .iw.page 
 {
     width: 100%;
@@ -76,6 +70,7 @@ html,body
     position: relative;
     
 }
+
 .iw.search-icon 
 {
     position: absolute;
@@ -87,9 +82,12 @@ html,body
     justify-content: center;
     align-items: center;
 }
+.iw.search-display-off{
+    display: none !important;
+}
 .iw.search-icon i {
     font-size: 1em;
-    color: #6874E8;
+    color: var(--mainColor);
 }
 .iw.search input.iw.input
 {
