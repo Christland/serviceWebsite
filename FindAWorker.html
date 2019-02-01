@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Find A Worker</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+            crossorigin="anonymous"
+        />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                font-family: 'Monsterrat', 'Open sans', sans-serif;
+                font-size: 16px;
+            }
+            .iw.page {
+                width: 100%;
+                min-height: 100%;
+                display: flex;
+            }
+            .iw.nav {
+                min-width: 55px;
+                background: rgb(236, 236, 236);
+            }
+            .iw.nav .iw.block {
+                margin-top: 0.85rem;
+            }
+            .iw.block {
+                width: 100%;
+                margin: 1.4rem 0;
+            }
+            .iw.center {
+                text-align: center;
+            }
+            .iw.icon {
+                font-size: 1.5rem;
+            }
+            .iw.icon.small {
+                font-size: 0.6rem;
+            }
+            .iw.main {
+                flex: 1;
+            }
+            .iw.header {
+                background: rgb(58, 91, 125);
+                margin: 0;
+                padding: 0.555rem 2rem;
+                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.125), 1px 1px 2px rgba(0, 0, 0, 0.07);
+                /* color: white; */
+            }
+            .iw.row {
+                display: flex;
+                align-items: center;
+                width: 100%;
+            }
+            .iw.header.row {
+                justify-content: space-between;
+            }
+            .iw.dropdown {
+                font-size: 1rem;
+                width: 120px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+               
+            
+            }
+            .iw.dropdown .iw.icon.small {
+                font-size: 1rem;
+            }
+            .iw.search {
+                position: relative;
+                color: black;
+                flex: 1;
+                text-align: right;
+            }
+            .iw.search input.iw.input {
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                font-size: 0.86rem;
+                padding: 0.44rem 0.75rem;
+                border-radius: 32px;
+                outline: none;
+                /* width: 100%; */
+                min-width: 300px;
+                padding-right: 2rem;
+            }
+            .iw.search input.iw.input + .iw.icon {
+                position: absolute;
+                top: 8px;
+                right: 10px;
+                font-size: 0.9999rem;
+            }
+            .iw.container {
+                max-width: 768px;
+                margin: 1rem auto;
+                background: rgb(250, 250, 250);
+                padding: 1rem 1rem;
+            }
+            .iw.block.tiny {
+                margin: 1rem 0;
+            }
+            .iw.row.item {
+                justify-content: space-between;
+                background: rgb(255, 255, 255);
+                padding: 0.75rem 0.95rem;
+                border-radius: 8px;
+                box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.075);
+                margin-bottom: 0.75rem;
+            }
+            .iw.row.item .iw.row.detail {
+                flex: 1;
+            }
+            .iw.row.item .iw.row.detail img.iw.avatar {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                margin-right: 1rem;
+            }
+            .iw.title {
+                font-size: 1.35rem;
+                font-weight: 500;
+                margin: 0;
+                color: rgb(116, 130, 255);
+            }
+            .iw.sub {
+                font-weight: 300;
+                margin: 0;
+                font-size: 0.8776rem;
+            }
+            .iw.sub.small {
+                font-size: 0.764rem;
+            }
+            .iw.helper {
+                font-size: 0.66rem;
+                color: rgb(177, 177, 177);
+            }
+            .iw.row.item .iw.status {
+                /* flex: 0.5; */
+                min-width: 200px;
+            }
+            .iw.row.item .iw.status .iw.rating {
+                margin-bottom: 0.55rem;
+            }
+            .iw.row.item .iw.status .iw.rating .iw.value {
+                font-size: 1rem;
+                background: orange;
+                color: white;
+                border-radius: 4px;
+                padding: 0.12rem 0.33rem;
+                display: inline-block;
+            }
+            .iw.row.item .iw.status .iw.rating .iw.icon.small {
+                font-size: 0.9rem;
+                
+            }
+
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+            
+        </style>
+    </head>
+    <body>
+        <main class="iw page">
+            <nav class="iw nav">
+                <div class="iw block center"><i class="fas fa-align-justify"></i></div>
+                <div class="iw block center"><a href = "HomePage.html"><i class="fas fa-home"></i></a></div>
+                <div class="iw block center"><a href = "#"><i class="fas fa-user"></i></div></a></div>
+                <div class="iw block center"><a href = "findAbusiness.html"><i class="fas fa-building"></i></a></div>
+                <div class="iw block center"><a href = "MeetTheTeam.html"><i class="fas fa-users"></i></a></div>
+            </nav>
+            <div class="iw main">
+                <header class="iw header row">
+                    <div class="iw dropdown">
+                            <div class="dropdown">
+                        All <i class="fas fa-angle-down iw icon small"></i>
+                        <div class="dropdown-content">
+                                <a href="#">Cometologist</a>
+                                <a href="#">Artist</a>
+                                <a href="#">Caterers</a>
+                                <a href="#">Tailors</a>
+                              </div>
+                    </div>
+
+
+                    <!-- <div class="dropdown">
+                        <button class="dropbtn">Dropdown</button>
+                        <div class="dropdown-content">
+                          <a href="#">Link 1</a>
+                          <a href="#">Link 2</a>
+                          <a href="#">Link 3</a>
+                        </div>
+                      </div> -->
+                    <div class="iw search" style =" align-self: left">
+                        <input
+                            type="text"
+                            name="search"
+                            id="search"
+                            class="iw input"
+                            placeholder="Search for a worker..."
+                        />
+                        <i class="fas fa-search iw icon small"></i>
+                    </div>
+                </header>
+                <div class="iw container">
+                    <section class="iw block tiny">
+                        <div class="iw item row">
+                            <div class="iw detail row">
+                                <img
+                                src="avatar1.jpg"
+                                alt="person"
+                                    class="iw avatar"
+                                />
+                                <div class="iw user">
+                                    <h2 class="iw title">Person 1 Name</h2>
+                                    <h4 class="iw sub">Job Description</h4>
+                                    <span class="iw helper">&copy; City, Country</span>
+                                </div>
+                            </div>
+                            <div class="iw status">
+                                <div class="iw rating center">
+                                    <span class="iw value">4.9</span>
+                                    <i class="fas fa-star iw icon small orange" style="color:orange"></i>
+                                    <i class="fas fa-star iw icon small orange" style="color:orange"></i>
+                                    <i class="fas fa-star iw icon small orange"style="color:orange"></i>
+                                    <i class="fas fa-star iw icon small orange"style="color:orange"></i>
+                                    <i class="fas fa-star iw icon small orange"style="color:orange"></i>
+                                </div>
+                                <h3 class="iw sub small center blue">Jobs completed</h3>
+                                <h2 class="iw title small center">100</h2>
+                            </div>
+                        </div>
+                        <div class="iw item row">
+                            <div class="iw detail row">
+                                <img
+                                    src="avatar1.jpg"
+                                    alt="person"
+                                    class="iw avatar"
+                                />
+                                <div class="iw user">
+                                    <h2 class="iw title">Person 2 Name</h2>
+                                    <h4 class="iw sub">Job Description</h4>
+                                    <span class="iw helper">&copy; City, Country</span>
+                                </div>
+                            </div>
+                            <div class="iw status">
+                                <div class="iw rating center">
+                                    <span class="iw value">4.0</span>
+                                    <i class="fas fa-star iw icon small orange" style="color:orange"></i>
+                                    <i class="fas fa-star iw icon small orange" style="color:orange"></i>
+                                    <i class="fas fa-star iw icon small orange" style="color:orange"></i>
+                                    <i class="fas fa-star iw icon small orange" style="color:orange"></i>
+                                    <i class="fas fa-star iw icon small white" style="color:grey"></i>
+                                </div>
+                                <h3 class="iw sub small center blue">Jobs completed</h3>
+                                <h2 class="iw title small center">70</h2>
+                            </div>
+                        </div>
+
+                        <div class="iw item row">
+                            <div class="iw detail row">
+                                <img
+                                    src="avatar1.jpg"
+                                    alt="person"
+                                    class="iw avatar"
+                                />
+                                <div class="iw user">
+                                    <h2 class="iw title">Person 3 Name</h2>
+                                    <h4 class="iw sub">Job Description</h4>
+                                    <span class="iw helper">&copy; City, Country</span>
+                                </div>
+                            </div>
+                            <div class="iw status">
+                                <div class="iw rating center">
+                                    <span class="iw value">2.0</span>
+                                    <i class="fas fa-star iw icon small orange" style="color:orange"></i>
+                                    <i class="fas fa-star iw icon small orange" style="color:orange"></i>
+                                    <i class="fas fa-star iw icon small orange" style="color: grey"></i>
+                                    <i class="fas fa-star iw icon small orange" style="color: grey"></i>
+                                    <i class="fas fa-star iw icon small white" style="color:grey"></i>
+                                </div>
+                                <h3 class="iw sub small center blue">Jobs completed</h3>
+                                <h2 class="iw title small center">20</h2>
+                            </div>
+                        </div>
+
+
+                        <div class="iw item row">
+                            <div class="iw detail row">
+                                <img
+                                    src="avatar1.jpg"
+                                    alt="person"
+                                    class="iw avatar"
+                                />
+                                <div class="iw user">
+                                    <h2 class="iw title">Person 4 Name</h2>
+                                    <h4 class="iw sub">Job Description</h4>
+                                    <span class="iw helper">&copy; City, Country</span>
+                                </div>
+                            </div>
+                            <div class="iw status">
+                                <div class="iw rating center">
+                                    <span class="iw value">5.0</span>
+                                    <i class="fas fa-star iw icon small orange" style="color:orange"></i>
+                                    <i class="fas fa-star iw icon small orange" style="color:orange"></i>
+                                    <i class="fas fa-star iw icon small orange" style="color:orange"></i>
+                                    <i class="fas fa-star iw icon small orange" style="color:orange"></i>
+                                    <i class="fas fa-star iw icon small white" style="color: orange"></i>
+                                </div>
+                                <h3 class="iw sub small center blue">Jobs completed</h3>
+                                <h2 class="iw title small center">110</h2>
+                            </div>
+                        </div>
+
+
+                        
+                    </section>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
