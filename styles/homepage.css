@@ -25,6 +25,10 @@
   position: static;
 }
 
+.topnav a.active {
+
+}
+
 .topnav li:hover{
     border-bottom: 2px solid var(--mainColor);
 }

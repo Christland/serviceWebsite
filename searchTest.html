@@ -1,0 +1,46 @@
+<!DOCTYPYE html>
+
+<html>
+
+<head>
+    <title>MySearch</title>
+
+
+</head>
+
+
+<body>
+<input type ="text" id = "mySearch" onkeyup="searchFunction" placeholder="Search Name" title="Type in a name">
+
+<div id = "SearchThings">
+    <h2><a>Naana</a></h2>
+    <h2><a>Ed Sheeran</a></h2>
+    <h2><a>Ariana</a></h2>
+    <h2><a>Taylor</a></h2>
+    <h2>Selena</h2>
+</div>
+
+    </body>
+
+
+    <script>
+        function searchFunction(){
+            var input, filter, div, h2,a, i;
+            input = document.getElementById("mySearch");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("SearchThings");
+            h2 = div.getElementsByTagName("h2");
+
+
+            for(i=0; i<h2.length; i++){
+                a = h2[i].getElementsByTagName("a")[0];
+
+                 if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      h2[i].style.display = "";
+    } else {
+      h2[i].style.display = "none";
+    }
+            }
+        }
+    </script>
+</html>
